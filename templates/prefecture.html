@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>県別一覧</h2>
+
+<a href="/">トップへ戻る</a>
+<a href="/regist">新規登録</a>
+<a href="/logout">ログアウト</a>
+
+{% if prefecture_list == [] %}
+<p>記録は登録されていません</p>
+{% else %}
+<div class="achievement-box">
+  <p class="achievement-rate">達成率: {{ achievement_rate }}%</p>
+  <p class="achievement-count">達成県数: {{ achieved_count }} / 47</p>
+</div>
+
+<table border="1">
+
+  <tr>
+    <th>都道府県</th>
+    <th>件数</th>
+  </tr>
+  {% for item in prefecture_list %}
+
+  <tr>
+    <td>
+      <a href="/prefecture_detail?name={{ item.prefecture }}">{{ item.prefecture }}</a>
+    </td>
+    <td>{{ item.count }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+{% endblock %}

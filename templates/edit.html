@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>編集</h1>
+
+<form method="POST" enctype="multipart/form-data">
+  <table border="1">
+    <tr>
+      <th>種別</th>
+      <th>施設名</th>
+      <th>都道府県</th>
+      <th>訪問日</th>
+      <th>お気に入りの動物</th>
+      <th>写真</th>
+      <th>メモ</th>
+    </tr>
+    <tr>
+      <td>
+        <select name="facility_type">
+          <option value="動物園" {% if post.facility_type=='動物園' %}selected{% endif %}>動物園</option>
+          <option value="水族館" {% if post.facility_type=='水族館' %}selected{% endif %}>水族館</option>
+        </select>
+      </td>
+      <td><input type="text" name="facility_name" value="{{ post.facility_name }}"></td>
+      <td><input type="text" name="prefecture" value="{{ post.prefecture }}"></td>
+      <td><input type="date" name="visit_date" value="{{ post.visit_date }}"></td>
+      <td><input type="text" name="favorite_animal" value="{{ post.favorite_animal }}"></td>
+      <td>
+        {% if post.photo_path %}
+        <img src="{{ post.photo_path }}" width="100"><br>
+        {% endif %}
+        <input type="file" name="photo">
+      </td>
+      <td><input type="text" name="memo" value="{{ post.memo }}"></td>
+    </tr>
+  </table>
+  <input type="submit" value更新更新">
+</form>
+
+<a href="/">一覧に戻る</a>
+{% endblock %}

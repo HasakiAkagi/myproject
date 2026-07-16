@@ -1,0 +1,200 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background: #fff;
+  padding: 16px 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: none;
+  margin-right: 12px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 8px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.card-button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  width: 100%;
+  display: block;
+}
+
+.card img {
+  width: 100%;
+  max-width: 180px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto;
+}
+
+.no-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.card-title {
+  margin-top: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  word-break: break-word;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background: #fff;
+  margin: 6% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 12px;
+  max-height: 80vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close {
+  float: right;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.modal-image {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  margin: 0 auto 10px;
+  border-radius: 10px;
+  display: block;
+}
+
+.card {
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 8px;
+  text-align: center;
+  overflow: hidden;
+  transition: 0.2s;
+}
+
+.card:hover {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.2);
+  transform: translateY(-2px);
+}
+
+/*上の色*/
+.site-title {
+  color: #2b6cb0;
+  background: #eaf3ff;
+  padding: 12px 16px;
+  border-left: 6px solid #2b6cb0;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+/*あなたのお気に入りの動物*/
+.favorite-title {
+  margin: 16px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/*タイトル*/
+header {
+  background: #fff;
+  padding: 16px 20px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+.site-title {
+  display: inline-block;
+  margin: 12px auto 0;
+  padding: 8px 16px;
+  background: #dbeafe;
+  border-radius: 8px;
+}
+
+/*達成率の色*/
+.achievement-box {
+  background: linear-gradient(135deg, #eaf3ff, #dbeafe);
+  border: 2px solid #3b82f6;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  display: inline-block;
+}
+
+.achievement-rate {
+  font-size: 22px;
+  font-weight: bold;
+  color: #1d4ed8;
+  margin: 0 0 8px;
+}
+
+.achievement-count {
+  font-size: 16px;
+  color: #374151;
+  margin: 0;
+}

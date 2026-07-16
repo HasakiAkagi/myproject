@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <a href="/regist">登録</a>
+    <a href="/prefecture">県別一覧</a>
+    <a href="/logout">ログアウト</a>
+    <h2 class="favorite-title">あなたのお気に入りの動物</h2>
+    {% if memo_list == [] %}
+    <p>記録は登録されていません</p>
+    {% else %}
+    <div class="card-grid">
+        {% for memo in memo_list %}
+        <div class="card">
+            <button class="card-button" onclick="openModal('{{ memo.id }}')">
+                {% if memo.photo_path %}
+                <img src="{{ memo.photo_path }}" alt="写真">
+                {% else %}
+                <div class="no-photo">写真なし</div>
+                {% endif %}
+            </button>
+            <div class="card-title">{{ memo.favorite_animal }}</div>
+        </div>
+
+        <div id="detail-{{ memo.id }}" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('{{ memo.id }}')">&times;</span>
+                <h2>詳細</h2>
+                {% if memo.photo_path %}
+                <img src="{{ memo.photo_path }}" alt="写真" class="modal-image">
+                {% endif %}
+                <p><strong>種別:</strong> {{ memo.facility_type }}</p>
+                <p><strong>施設名:</strong> {{ memo.facility_name }}</p>
+                <p><strong>都道府県:</strong> {{ memo.prefecture }}</p>
+                <p><strong>訪問日:</strong> {{ memo.visit_date }}</p>
+                <p><strong>お気に入りの動物:</strong> {{ memo.favorite_animal }}</p>
+                <p><strong>メモ:</strong> {{ memo.memo }}</p>
+                <p>
+                    <a href="/{{ memo.id }}/edit">編集</a>
+                    <a href="/{{ memo.id }}/delete">削除</a>
+                </p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+<script>
+    function openModal(id) {
+        document.getElementById('detail-' + id).style.display = 'block';
+    }
+    function closeModal(id) {
+        document.getElementById('detail-' + id).style.display = 'none';
+    }
+    window.onclick = function (event) {
+        document.querySelectorAll('.modal').forEach(function (modal) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
+</script>
+{% endblock %}

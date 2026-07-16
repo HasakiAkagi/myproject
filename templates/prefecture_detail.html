@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ prefecture_name }} の記録</h1>
+
+<a href="/prefecture">県別一覧に戻る</a>
+<a href="/">トップへ戻る</a>
+<a href="/regist">新規登録</a>
+<a href="/logout">ログアウト</a>
+
+{% if memo_list == [] %}
+<p>この県の記録はありません</p>
+{% else %}
+<table border="1">
+  <tr>
+    <th>写真</th>
+    <th>種別</th>
+    <th>施設名</th>
+    <th>訪問日</th>
+    <th>お気に入りの動物</th>
+    <th>メモ</th>
+    <th></th>
+  </tr>
+  {% for memo in memo_list %}
+  <tr>
+    <td>
+      {% if memo.photo_path %}
+      <img src="{{ memo.photo_path }}" width="100">
+      {% else %}
+      なし
+      {% endif %}
+    </td>
+    <td>{{ memo.facility_type }}</td>
+    <td>{{ memo.facility_name }}</td>
+    <td>{{ memo.visit_date }}</td>
+    <td>{{ memo.favorite_animal }}</td>
+    <td>{{ memo.memo }}</td>
+    <td>
+      <a href="/{{ memo.id }}/edit">編集</a>
+      <a href="/{{ memo.id }}/delete">削除</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endif %}
+{% endblock %}
